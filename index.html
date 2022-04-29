@@ -39,9 +39,7 @@
             };
         }
 
-
         var total = width * height;
-
 
         function reverse_direction(d) {
             if (d == "r")
@@ -60,7 +58,6 @@
             for (var i = 0; i < h; i++)
                 m[i] = new Array();
 
-
             for (var hh = 0; hh < h; hh++) {
                 for (var ww = 0; ww < w; ww++) {
                     m[hh][ww] = maze_blocks(false);
@@ -71,9 +68,6 @@
 
         function is_unvisited_neighbor_available() {
             var unvs = ""; // unvisited neighbors
-
-
-
 
             if (cury < height - 1 && !maze[cury + 1][curx].visited) // down block is unvisited
                 unvs += "d";
@@ -90,7 +84,6 @@
         }
 
         function go_to_direction(dir) {
-
 
             maze[cury][curx].visited = true;
             maze[cury][curx].open_directions += dir;
@@ -123,21 +116,10 @@
                         finished = true;
                     break;
             }
-
-
-
-
-
+            
             maze[cury][curx].visited = true;
             maze[cury][curx].open_directions += reverse_direction(dir);
-
-            //process_current_block();
-
-
-
-
         }
-
 
         function process_current_block() {
             var ways;
@@ -157,8 +139,6 @@
                     arrx.push(curx);
                     arry.push(cury);
 
-
-
                     if (ways.length > 1) {
                         rand = Math.floor(Math.random() * ways.length);
                         dir = ways.charAt(rand);
@@ -169,18 +149,13 @@
 
                     if (debug)
                         alert(dir);
-
-
-
-
-
+                    
                     go_to_direction(dir);
 
                     arrx.push(curx);
                     arry.push(cury);
 
                 }
-
 
             }
 
@@ -229,11 +204,8 @@
         let debug = false;
         let maze = create_maze_array(width, height);
         var ways_as_string = "";
-
-
-
+        
         process_current_block();
-
 
         function fillHtmlCodes(y, x) {
             var imgId = "";
@@ -258,9 +230,6 @@
         }
 
         drawMaze();
-
-
-
 
     </script>
 
